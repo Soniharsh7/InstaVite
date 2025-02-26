@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body style="background-color: rgba(41, 39, 39, 0.409);">
+    <form action="/login" method="post">
+        <div class="container py-3">
+         <div class="input-group flex-nowrap" style="gap: 10px; margin-top: 20px;">
+           <span class="input-group-text" id="addon-wrapping" style="background-color: black; color: white;" >Username</span>
+           <input type="text" class="form-control" name="username" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+         </div>
+         <div class="input-group flex-nowrap" style="gap: 10px; margin-top: 20px;">
+            <span class="input-group-text" id="addon-wrapping" style="background-color: black; color: white;">Password</span>
+            <input type="password" class="form-control" name="password" placeholder="password" aria-describedby="addon-wrapping">
+          </div>
+          <input class="btn btn-error" type="submit" style="gap: 10px; margin-top: 20px; border: 2px solid rgba(64, 60, 60, 0.394);">
+         </div>
+        </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

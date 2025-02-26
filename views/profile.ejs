@@ -1,0 +1,67 @@
+<% include ./partials/header.ejs %>
+
+    <h2 style="margin: 20px; text-transform: uppercase;">Profile - <%= foundUser.username%></h2>
+    <hr>
+    <div class="card rounded-4" style="width: 14rem; margin: 15px ; color: rgba(255, 255, 255, 0.581); background-color: rgba(46, 46, 46, 0.494); border: 2px solid rgba(12, 27, 4, 0.647); padding: 2px;">
+      <img class="rounded-4 p-2" src="<%=foundUser.image%>" class="card-img-top" style="overflow: hidden;" alt="...">
+      <div class="card-body" style="color: white;">
+        <h5 class="card-title" style="text-transform: uppercase;"><span style="text-transform: capitalize;">Username : </span> <%=foundUser.username%></h5>
+        <p class="card-text">Kuchh karta hai...</p>
+      </div>
+    </div>
+
+
+    <div class="w-50 p-3">
+      <h2>Create a post</h2>
+      <hr>
+      <hr>
+      <form action="/post" method="post">
+        <div class="mb-3">
+          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write here." style="color: white; background-color: rgba(171, 166, 155, 0.777);" name="post" rows="3"></textarea>
+          <hr>
+          <label for="exampleFormControlTextarea1" class="form-label" >Whats's on your mind,Write here.</label>
+        </div>
+        <hr>
+        <hr>
+        <input class="btn btn-danger" type="submit" value="Submit">
+      </form>
+    </div>
+
+
+    <div class="container w-50" style="margin: 10px;">
+      <h4>All post's by you...</h4><hr><hr>
+      <% foundUser.posts.reverse().forEach(function(post){ %>
+        <div class="card mt-2" style="width: 13rem; background-color: transparent; border: none;">
+            <span class="border-black border border-3 rounded-4">
+          <div class="card-body rounded" style="background-color: transparent; color: white;">
+            <h5 class="card-title">username : <%= foundUser.username %></h5>
+            <p class="card-text">data : <%= post.data %></p>
+            <p style="font-weight: 600;" class="text-primary">Likes : <%= post.likes.length %></p>
+            <a href="/like/<%= post._id%>" class="btn <%= post.likes.indexOf(user.id)===-1 ? 'btn-primary' : 'btn-danger' %>"><%= post.likes.indexOf(user.id) === -1 ? 'Like' : 'Unlike' %></a>
+          </div>
+      </div> 
+    </span>
+    <%})%>
+    </div>
+
+    <!-- 
+    <div class="container mt-4">
+      <h6 class="mb-3">All Posts By You.</h6>
+      <% foundUser.posts.reverse().forEach(function(post){ %>
+        <div class="card mt-3" style="width: 45rem;">
+          <div class="card-body">
+            <h5 class="card-title">@<%= foundUser.username %>
+            </h5>
+            <p class="card-text">
+              <%= post.data %>
+            </p>
+            <p style="font-weight: 600;" class="text-primary"><%= post.likes.length %> Likes</p>
+            <a href="/like/<%= post._id%>" class="btn <%= post.likes.indexOf(foundUser.id) === -1 ? 'btn-primary' : 'btn-danger'%>"><%= post.likes.indexOf(foundUser.id) === -1 ? 'Like' : 'Unlike' %></a>
+          </div>
+        </div>
+        <% }) %>
+    </div> -->
+
+
+    
+    <% include ./partials/footer.ejs %>
